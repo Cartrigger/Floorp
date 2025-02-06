@@ -66,9 +66,6 @@ on:
       PAT:
         description: "Personal Access Token"
         required: true
-      SIGNPATH_API_TOKEN:
-            description: "SignPath API Token"
-            required: true
 
 jobs:
   win-build:
@@ -381,7 +378,6 @@ jobs:
       if: inputs.enable-codesign == true
       uses: signpath/github-action-submit-signing-request@v1.1
       with:
-        api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
         organization-id: '3b13ba3b-8062-4df7-a4a6-217a5ec352c4'
         project-slug: 'Floorp'
         signing-policy-slug: 'release-signing'
@@ -417,7 +413,6 @@ jobs:
       if: inputs.enable-codesign == true
       uses: signpath/github-action-submit-signing-request@v1.1
       with:
-        api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
         organization-id: '3b13ba3b-8062-4df7-a4a6-217a5ec352c4'
         project-slug: 'Floorp'
         signing-policy-slug: 'release-signing'

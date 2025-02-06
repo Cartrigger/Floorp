@@ -15,10 +15,10 @@ on:
         description: generate profile for PGO
         required: true
 
-run-name: ${{fromJSON('["[NO PGO]","[PGO]"]')[inputs.profgen]}} Windows ${{fromJson('["AMD","AARCH"]')[inputs.aarch64]}} ${{fromJson('["64bit","32bit"]')[inputs.bit-32]}} build
+run-name: ${{fromJSON('["[NO PGO]","[PGO]"]')[inputs.profgen]}} Windows ${{fromJson('["AMD","AARCH"]')[inputs.aarch64]}} 64bit build
 jobs:
   windows-build:
-    name: win-${{fromJson('["no_pgo","pgo"]')[inputs.profgen]}}-${{fromJson('["AMD","AARCH"]')[inputs.aarch64]}}-${{fromJson('["64bit","32bit"]')[inputs.bit-32]}}
+    name: win-${{fromJson('["no_pgo","pgo"]')[inputs.profgen]}}-${{fromJson('["AMD","AARCH"]')[inputs.aarch64]}}-64bit
     uses: ./.github/workflows/windows-build.yml
     with:
       profgen: ${{inputs.profgen}}
